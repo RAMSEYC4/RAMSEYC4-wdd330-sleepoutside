@@ -27,3 +27,14 @@ export function getParam(param) {
   const urlParams = new URLSearchParams(queryString);
   return urlParams.get(param);
 }
+
+export async function loadHeaderFooter() {
+  const header = document.querySelector('header');
+  const footer = document.querySelector('footer');
+  const [headerRes, footerRes] = await Promise.all([
+    fetch('/partials/header.html'),
+    fetch('/partials/footer.html'),
+  ]);
+  header.innerHTML = await headerRes.text();
+  footer.innerHTML = await footerRes.text();
+}
