@@ -9,14 +9,15 @@ export default class ProductList {
     const list = await this.dataSource.getData(this.category);
     this.renderList(list);
     const displayCategory = this.category
-      .split('-')
+      .split("-")
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(' ');
-    document.querySelector('.title').textContent = `Top Products: ${displayCategory}`;
+      .join("");
+    document.querySelector(".title").textContent =
+      `Top Products: ${displayCategory}`;
   }
 
   renderList(list) {
-    this.listElement.innerHTML = list.map(this.productCardTemplate).join('');
+    this.listElement.innerHTML = list.map(this.productCardTemplate).join("");
   }
 
   productCardTemplate(product) {

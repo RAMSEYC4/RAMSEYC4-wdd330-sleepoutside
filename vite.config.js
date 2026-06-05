@@ -1,8 +1,8 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 
-export default defineConfig({
-  base: "/wdd330-sleepoutside/",
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? "/RAMSEYC4-wdd330-sleepoutside/" : "/",
   root: "src/",
   build: {
     outDir: "../dist",
@@ -16,4 +16,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
